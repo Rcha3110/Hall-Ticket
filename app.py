@@ -49,6 +49,13 @@ def create_hall_ticket(student, qr_code_path, hall_ticket_path):
     pdf = FPDF()
     pdf.add_page()
 
+    # Set font for the header
+    pdf.set_font("Arial", "B", size=16)
+    pdf.cell(200, 10, txt="GOVERNMENT ENGINEERING COLLEGE HASSAN", ln=True, align="C")
+
+    # Add some spacing
+    pdf.ln(10)
+    
     # Add student image (top-right corner)
     if os.path.exists(student["student_image"]):
         pdf.image(student["student_image"], x=160, y=10, w=40, h=40)
@@ -65,6 +72,7 @@ def create_hall_ticket(student, qr_code_path, hall_ticket_path):
         pdf.cell(200, 10, txt=f"{subject}: {date}", ln=True)
 
     # Add QR code (below the hall ticket)
+    pdf.ln(10)
     pdf.image(qr_code_path, x=80, y=200, w=50, h=50)
 
     # Output PDF
