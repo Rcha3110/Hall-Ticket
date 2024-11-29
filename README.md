@@ -1,1 +1,1 @@
-# Hall-Ticket
+It's a system which generates hall tickets for students, where each ticket includes a QR code with essential information like student ID, name, exam details, and hall information. The QR code can be scanned for validation at the exam venue.
